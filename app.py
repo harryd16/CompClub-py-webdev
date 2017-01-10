@@ -1,7 +1,19 @@
 from flask import Flask,render_template
+from flask_sqlalchemy import SQLAlchemy
+
+from flask_login import LoginManager, login_required, login_user, current_user
+import flask_login as login
+
+import datetime
+import os
+
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + os.path.join(basedir, 'data.sqlite')
+# This sould be kept secret - probably no as written here
+app.config['SECRET_KEY'] = '12345678'
+db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
