@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ poll['title'] }}</h1>
+    <p>{{ poll['description'] }}</p>
+    <div>
+        <b>{{ poll['question'] }}</b>
+        <br>
+        <input type="radio" name="{{ poll['id'] }}" value="Yes">Yes
+        <br>
+        <input type="radio" name="{{ poll['id'] }}" name= value="No">No
+    </div>
+{% endblock %}
